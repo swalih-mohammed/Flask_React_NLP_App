@@ -41,6 +41,41 @@ def sentaceSeparator():
         sentances.append(sent)
     return jsonify(sentances)
 
+@app.route('/pos', methods = ['POST'])
+@cross_origin()
+def pos(): 
+    data = request.get_json()
+    data  = data['data']
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(data)
+    doc_list = list(doc.sents)[:100]
+
+    myList = []
+    for sent in doc_list:
+        for token in sent:
+            item = {
+            "id": len(myList)+1,
+            "text": str(token.text),
+            "pos": str(token.pos_)
+            }
+            myList.append(item)
+    # print(myList)
+    return jsonify(myList)
+
+@app.route('/compare', methods = ['POST'])
+@cross_origin()
+def compare(): 
+    data = request.get_json()
+    text1  = data['text1']
+    text2  = data['text2']
+
+
+    nlp = spacy.load("en_core_web_md")
+    doc1 = nlp(text1)
+    doc2 = nlp(text2)
+    similarity_ = doc1.similarity(doc2)    
+    return jsonify(round(similarity_,4))
+
 @app.route('/static/<folder>/<file>')
 def css(folder,file):
     ''' User will call with with thier id to store the symbol as registered'''

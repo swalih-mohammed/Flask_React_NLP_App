@@ -28,10 +28,11 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Link } from "react-router-dom";
 import SentanceSeperate from './pages/SentanceSeperate';
+import POS from './pages/Pos';
+import Compare from './pages/Compare';
 
 
 const drawerWidth = 300;
-
 
 const theme = createTheme({
   status: {
@@ -90,22 +91,42 @@ function App() {
                     </ListItem>
                   </Link>
 
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <InboxIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={"Text Classificatino"} />
-                    </ListItemButton>
-                  </ListItem>
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <InboxIcon />
-                      </ListItemIcon>
-                      <ListItemText primary={"Tokenize"} />
-                    </ListItemButton>
-                  </ListItem>
+                  <Link to="/pos">
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"POS"} />
+                      </ListItemButton>
+                    </ListItem>
+                  </Link>
+
+                  <Link to="/compare">
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Compare"} />
+                      </ListItemButton>
+                    </ListItem>
+                  </Link>
+
+                  <Link to="/test">
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"ts"} />
+                      </ListItemButton>
+                    </ListItem>
+                  </Link>
+
+
+
+
 
                 </List>
 
@@ -117,7 +138,8 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/SentanceSeperate' element={<SentanceSeperate />} />
-                <Route path='/:id' element={<PostDetail />} />
+                <Route path='/pos' element={<POS />} />
+                <Route path='/compare' element={<Compare />} />
                 <Route path='/add-blog' element={<AddBlog />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
