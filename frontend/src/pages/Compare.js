@@ -8,8 +8,12 @@ import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Stack } from '@mui/system';
 
+import { ROOT_URL } from "../constants"
 
-const API_URL = 'http://127.0.0.1:5000/compare'
+// https://flask-react-nlp-app.onrender.com/
+// const API_URL = 'http://127.0.0.1:5000/compare'
+const API_URL = 'https://flask-react-nlp-app.onrender.com/compare'
+
 
 export default function MultilineTextFields() {
     const [outPut, SetOutput] = React.useState(0)
@@ -36,7 +40,7 @@ export default function MultilineTextFields() {
                     text2: text2
                 }
                 setloading(true)
-                const response = await axios.post(API_URL, data)
+                const response = await axios.post(`${ROOT_URL}/compare`, data)
                 SetOutput(response.data)
                 console.log(response.data)
                 setloading(false)

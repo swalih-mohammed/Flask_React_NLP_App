@@ -6,6 +6,7 @@ import axios from 'axios'
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
+import { ROOT_URL } from "../constants"
 
 
 const API_URL = 'http://127.0.0.1:5000/sentace-separator'
@@ -36,7 +37,7 @@ export default function MultilineTextFields() {
                     data: userSent
                 }
                 setloading(true)
-                const response = await axios.post(API_URL, data)
+                const response = await axios.post(`${ROOT_URL}/sentace-separator`, data)
                 setSentances(response.data)
                 setloading(false)
             } catch (error) {

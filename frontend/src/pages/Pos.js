@@ -8,6 +8,9 @@ import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 
+import { ROOT_URL } from "../constants"
+
+
 
 const API_URL = 'http://127.0.0.1:5000/pos'
 
@@ -32,7 +35,7 @@ export default function POS() {
                     data: inputText
                 }
                 setloading(true)
-                const response = await axios.post(API_URL, data)
+                const response = await axios.post(`${ROOT_URL}/pos`, data)
                 SetOutput(response.data)
                 setloading(false)
             } catch (error) {

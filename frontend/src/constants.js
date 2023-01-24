@@ -1,0 +1,1 @@
+export const ROOT_URL = 'https://flask-react-nlp-app.onrender.com'
