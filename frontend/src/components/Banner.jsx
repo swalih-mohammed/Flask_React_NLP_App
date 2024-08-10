@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 
 
 const post = {
-    title: 'This Natural language Processing app is buitl with Flask backend framework using Spacy python library. The frontend is created with React and material UI',
+    title: 'This Natural Language Processing App is built with Flask and Spacy in the backend and React and material UI in the frontend',
     image: 'https://source.unsplash.com/random',
     imageText: 'main image description',
     linkText: 'Continue reading…',
@@ -50,7 +50,7 @@ function Banner() {
                             pr: { md: 0 },
                         }}
                     >
-                        <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                        <Typography component="h5" variant="h5" color="inherit" gutterBottom>
                             {post.title}
                         </Typography>
 
