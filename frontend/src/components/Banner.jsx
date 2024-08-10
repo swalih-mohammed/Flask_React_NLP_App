@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 
 
 const post = {
-    title: 'This site is buit on top of Express, React and Mongodb',
+    title: 'This Natural language Processing app is buitl with Flask backend framework using Spacy python library. The frontend is created with React and material UI',
     image: 'https://source.unsplash.com/random',
     imageText: 'main image description',
     linkText: 'Continue reading…',
